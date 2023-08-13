@@ -37,38 +37,50 @@ const books = [
         image: "IMG/Screenshot 2023-07-27 163406.png"
     }
 ]
-
-
-
-
-
-// IMG / Screenshot 2023-07 - 27 163406.png
-
-
-// let body = document.getElementsByTagName("body")[0]
-// body.innerHTML = " <h1>hello there</h1>"
-let demo = document.getElementById("demo")
-
-
-let bookElement = books.map((book) => {
-    let img = document.createElement("img");
-
-    let div =
-        `<div>
-         <p>${book.id}</p>
-         <img src="${book.image}">
-        <p>${book.name}</p>
-         <button id="btn">Add to cart</button> 
-        </div>`
-    demo.innerHTML += div
-})
-
+document.getElementById("demo")
 function fiction() {
     const myFiction = books.filter((book) => {
         return book.category.includes("fiction")
     })
-    console.log(myFiction);
+    demo.innerHTML = myFiction;
+
 }
+document.getElementById("demo")
+function adventure() {
+    const myAdventure = books.filter((book) => {
+        return book.category.includes("adventure")
+    })
+    demo.innerHTML = myAdventure;
+
+}
+document.getElementById("demo")
+function novels() {
+    const myNovels = books.filter((book) => {
+        return book.category.includes("fiction")
+    })
+    demo.innerHTML = myNovels;
+
+}
+
+
+let demo = document.getElementById("demo")
+
+let bookElement = books.map((book) => {
+
+    let div =
+        `<div>
+             <p>${book.id}</p>
+             <img src="${book.image}">
+            <p>${book.name}</p>
+             <button id="btn">Add to cart</button> 
+            </div>`
+    demo.innerHTML += div
+
+})
+
+
+
+
 // function novels() {
 //     const myNovels = books.filter((book) => {
 //         return book.category.includes("novels")
