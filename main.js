@@ -1,45 +1,45 @@
 const books = [
     {
-        id: 1,
+        id: "1",
         name: "Wonder",
         category: "Fiction",
-        price:"$60.99",
+        price: "60.99",
         image: "IMG/Screenshot 2023-07-27 163136.png"
     },
 
     {
-        id: 2,
+        id: "2",
         name: "Who moved my cheese",
         category: "Fiction",
-        price:"$99.99",
+        price: "99.99",
         image: "IMG/Screenshot 2023-07-27 163317.png"
     },
     {
-        id: 3,
+        id: "3",
         name: "Sooley",
         category: "Novels",
-        price:"$70.99",
+        price: "70.99",
         image: "IMG/Screenshot 2023-07-27 163432.png"
     },
     {
-        id: 4,
+        id: "4",
         name: "My Wonder",
         category: "Adventure",
-        price:"$30.99",
+        price: "30.99",
         image: "IMG/Screenshot 2023-07-27 163136.png"
     },
     {
-        id: 5,
+        id: "5",
         name: "My brilliant freind",
         category: "Novels",
-        price:"$40.99",
+        price: "40.99",
         image: "IMG/Screenshot 2023-07-27 163336.png"
     },
     {
-        id: 6,
+        id: "6",
         name: "Sparring Partners",
         category: "Adventure",
-        price:"$80.99",
+        price: "80.99",
         image: "IMG/Screenshot 2023-07-27 163406.png"
     }
 ]
@@ -54,31 +54,42 @@ function handleFilter(event) {
     let bookContent = filterdBooks.map((book) => {
         let div =
             `<div>
-          <p>${book.id}</p>
+          <p id="book_id">${book.id}</p>
              <img src="${book.image}">
             <p>${book.name}</p>
-             <button id="btn">Add to cart</button> 
+             <button id="btn" onclick="localStorage(event)">Add to cart</button> 
             </div>`
         document.getElementById("demo").innerHTML += div;
     })
 }
 
 function bookPrice() {
-    document.getElementById("demo").innerHTML ="";
-    const priceFilter =books.filter((book)=>{
-        return book.price < 60.99;
+    let value = document.getElementById("input_search").value
+    
+    document.getElementById("demo").innerHTML = "";
+    const priceFilter = books.filter((book) => {
+        return book.price < value;
     })
     console.log(priceFilter);
     let bookContent = priceFilter.map((book) => {
         let div =
             `<div>
-          <p>${book.id}</p>
+          <p id="book_id">${book.id}</p>
              <img src="${book.image}">
             <p>${book.name}</p>
-             <button id="btn">Add to cart</button> 
+            <p>${book.price}</p>
+             <button id="btn"onclick="localStorage(event)" >Add to cart</button> 
             </div>`
         document.getElementById("demo").innerHTML += div;
     })
+}
+
+function localStorage() {
+    let value =document.getElementById("book_id").textContent;
+    const priceFilter = books.filter((book) => {
+        return book.price = value;
+    })
+    console.log(value);
 }
 
 
@@ -91,11 +102,11 @@ let bookElement = books.map((book) => {
 
     let div =
         `<div>
-             <p>${book.id}</p>
+             <p id="book_id">${book.id}</p>
              <img src="${book.image}">
             <p>${book.name}</p>
             <p>${book.price}</p>
-             <button id="btn">Add to cart</button> 
+             <button id="btn" onclick="localStorage(event)">Add to cart</button> 
             </div>`
     document.getElementById("demo").innerHTML += div
 

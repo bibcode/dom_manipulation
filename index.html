@@ -13,14 +13,15 @@
         <li class="navItem"><a href="">Home</a></li>
         <li class="navItem"><a href="">About</a></li>
         <li class="navItem"><a href="">Contact us</a></li>
+        <li class="navItem"> <button><a href="cart.html">cart</a></button></li>
         <li class="navItem"> <button>login</button></li>
         <li class="navItem"><button>register</button></li>
     </ul>
     <button onclick="handleFilter(event)">Fiction</button>
     <button onclick="handleFilter(event)">Novels</button>
-    <button onclick="handleFilter(event)">Adventure</button><br>
-    <input type="search" name="" id="input_search">
-    <button id="search" onclick="bookPrice()">search</button>
+    <button onclick="handleFilter(event)">Adventure</button>
+    <input type="search" id="input_search">
+    <button id="search" onclick="bookPrice(event)">search</button>
     <div style=" display: flex; justify-content: space-between;" id="demo">
 
     </div>
