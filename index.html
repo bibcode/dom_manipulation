@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Booksvilla</title>
+    <title>BooksVilla</title>
 </head>
 
 <body>
@@ -16,9 +16,11 @@
         <li class="navItem"> <button>login</button></li>
         <li class="navItem"><button>register</button></li>
     </ul>
-    <button onclick="fiction()">Fiction</button>
-    <button onclick="novels()">Novels</button>
-    <button onclick="adventure()">Adventure</button>
+    <button onclick="handleFilter(event)">Fiction</button>
+    <button onclick="handleFilter(event)">Novels</button>
+    <button onclick="handleFilter(event)">Adventure</button><br>
+    <input type="search" name="" id="input_search">
+    <button id="search" onclick="bookPrice()">search</button>
     <div style=" display: flex; justify-content: space-between;" id="demo">
 
     </div>
