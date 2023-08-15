@@ -1,6 +1,6 @@
 const books = [
     {
-        id: "1",
+        id: 1,
         name: "Wonder",
         category: "Fiction",
         price: "60.99",
@@ -8,35 +8,35 @@ const books = [
     },
 
     {
-        id: "2",
+        id: 2,
         name: "Who moved my cheese",
         category: "Fiction",
         price: "99.99",
         image: "IMG/Screenshot 2023-07-27 163317.png"
     },
     {
-        id: "3",
+        id: 3,
         name: "Sooley",
         category: "Novels",
         price: "70.99",
         image: "IMG/Screenshot 2023-07-27 163432.png"
     },
     {
-        id: "4",
+        id: 4,
         name: "My Wonder",
         category: "Adventure",
         price: "30.99",
         image: "IMG/Screenshot 2023-07-27 163136.png"
     },
     {
-        id: "5",
+        id: 5,
         name: "My brilliant freind",
         category: "Novels",
         price: "40.99",
         image: "IMG/Screenshot 2023-07-27 163336.png"
     },
     {
-        id: "6",
+        id:6,
         name: "Sparring Partners",
         category: "Adventure",
         price: "80.99",
@@ -86,10 +86,8 @@ function bookPrice() {
 
 function localStorage() {
     let value =document.getElementById("book_id").textContent;
-    const priceFilter = books.filter((book) => {
-        return book.price = value;
-    })
-    console.log(value);
+
+    console.log(parseInt(value));
 }
 
 
