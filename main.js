@@ -94,7 +94,7 @@ function setLocalStorage(id) {
     console.log(book);
 
 }
-
+window.addEventListener("load", myLocalStorage)
 function myLocalStorage() {
     let orderedBook = JSON.parse(localStorage.getItem("book"));
     document.getElementById("demos").innerHTML = "";
@@ -108,7 +108,9 @@ function myLocalStorage() {
                     </div>
             `;
     });
-
+    setTimeout(() => {
+        window.location.replace("http://127.0.0.1:5500/login.html")
+    }, 4000)
     for (let i = 0; i < bookElements.length; i++) {
         document.getElementById("demos").innerHTML += bookElements[i];
     }
@@ -125,8 +127,10 @@ function reset() {
 function submit() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    let userType =document.getElementById("userType").value;
     console.log("email>>", email);
     console.log("password>>", password);
+    console.log("userType>>", userType);
 }
 
 function register() {
