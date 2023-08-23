@@ -86,18 +86,23 @@ function bookPrice() {
 }
 
 function setLocalStorage(id) {
-    const book = books.filter((book) => {
+    const bookList = books.filter((book) => {
         return book.id == id;
     })
-    localStorage.setItem("book", JSON.stringify(book))
-    let myBook = localStorage.getItem("book")
-    console.log(book);
+    if (bookList.length > 0) {
+        const returnedBook = bookList[0];
+        const bookJson = localStorage.getItem("book") || "[]";
+        let bookArray = JSON.parse(bookJson)
+        bookArray = [...bookArray, returnedBook]
+    } else {
+        console.log("no localstorage found on this device");
+    }
 
 }
-window.addEventListener("load", myLocalStorage)
-function myLocalStorage() {
+window.addEventListener("load", getLocalStorage)
+function getLocalStorage() {
     let orderedBook = JSON.parse(localStorage.getItem("book"));
-    document.getElementById("demos").innerHTML = "";
+    // document.getElementById("demos").innerHTML = "";
     let bookElements = orderedBook.map((book) => {
         return `
             <div>
@@ -108,9 +113,6 @@ function myLocalStorage() {
                     </div>
             `;
     });
-    setTimeout(() => {
-        window.location.replace("http://127.0.0.1:5500/login.html")
-    }, 4000)
     for (let i = 0; i < bookElements.length; i++) {
         document.getElementById("demos").innerHTML += bookElements[i];
     }
@@ -127,7 +129,7 @@ function reset() {
 function submit() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    let userType =document.getElementById("userType").value;
+    let userType = document.getElementById("userType").value;
     console.log("email>>", email);
     console.log("password>>", password);
     console.log("userType>>", userType);
@@ -151,7 +153,7 @@ function register() {
 
 let bookElement = books.map((book) => {
 
-    let div =
+    return div =
         `<div>
              <p id="book_id">${book.id}</p>
              <img src="${book.image}">
@@ -159,6 +161,8 @@ let bookElement = books.map((book) => {
             <p>${book.price}</p>
              <button id="btn" onclick="setLocalStorage(${book.id})">Add to cart</button>
             </div>`
-    document.getElementById("demo").innerHTML += div
-
 })
+for (let i = 0; i < bookElement.length; i++) {
+    document.getElementById("demo").innerHTML += bookElement[i];
+
+}
