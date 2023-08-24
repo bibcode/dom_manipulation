@@ -91,18 +91,21 @@ function setLocalStorage(id) {
     })
     if (bookList.length > 0) {
         const returnedBook = bookList[0];
-        const bookJson = localStorage.getItem("book") || "[]";
-        let bookArray = JSON.parse(bookJson)
-        bookArray = [...bookArray, returnedBook]
+        if (returnedBook) {
+            const booksJson = localStorage.getItem("book") || "[]";
+            let booksArray = JSON.parse(booksJson)
+            booksArray = [...booksArray, returnedBook]
+            localStorage.setItem("book", JSON.stringify(booksArray));
+        } 
     } else {
         console.log("no localstorage found on this device");
-    }
 
+    }
 }
 window.addEventListener("load", getLocalStorage)
 function getLocalStorage() {
     let orderedBook = JSON.parse(localStorage.getItem("book"));
-    // document.getElementById("demos").innerHTML = "";
+    document.getElementById("demos").innerHTML = "";
     let bookElements = orderedBook.map((book) => {
         return `
             <div>
